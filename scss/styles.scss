@@ -1,0 +1,260 @@
+/*
+ * GLOBAL VARIABLES
+ */
+// Colors
+// Primary
+$red: #ea5353;
+$cyan: #44D3D2;
+$orange: #fcaf4a;
+$blue: #549ef2;
+$white: #FFFFFF;
+$black: #000000;
+// Neutral
+$very-dark-blue: #4D4F62;
+$grayish-blue: #a3a5ae;
+$very-light-gray: #fafafa;
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins';
+}
+
+html {
+    font-size: 15px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/*
+ * main elements
+ */
+
+main {
+    margin: 85px 32px 70px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 76px;
+}
+
+@mixin title($fs, $lh) {
+    margin-bottom: 1px;
+    font-weight: 600;
+
+    font-size: $fs;
+    line-height: $lh;
+}
+
+@mixin subtitle($fs, $lh, $ls) {
+    font-weight: 400;
+    opacity: 0.5;
+
+    font-size: $fs;
+    line-height: $lh;
+    letter-spacing: $ls;
+
+}
+
+.title-container {
+    max-width: 540px;
+    
+    text-align: center;
+
+    .title {
+        @include title(24px, 36px);
+        letter-spacing: 0.166667px;
+
+        span {
+            font-weight: 275;
+        }
+    }
+
+    .subtitle {
+        @include subtitle(15px, 25px, 0.104167px);
+        margin-top: 16px;
+    }
+}
+
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.card {
+    padding: 27px 28px 28px;
+    max-width: 311px;
+    border-radius: 8px;
+    box-shadow: 0px 15px 30px -11px #83a6d280;
+    border-top-width: 3.55px;
+    border-top-style: solid;
+
+
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+
+    .title {
+        @include title(20px, 30px);
+    }
+
+    .subtitle {
+        @include subtitle(13px, 23px, 0.0902778px);
+    }
+
+    img {
+        width: 57px;
+        height: 57px;
+
+        align-self: flex-end;
+        justify-self: flex-end;
+    }
+
+    &.supervisor {
+        border-top-color: $cyan;
+    }
+
+    &.team-builder {
+        border-top-color: $red;
+    }
+
+    &.karma {
+        border-top-color: $orange;
+    }
+
+    &.calculator {
+        border-top-color: $blue;
+    }
+}
+
+
+/*
+ *  footer elements
+ */
+
+
+footer {
+    padding: 15px 0;
+}
+
+.attribution {
+    padding: 10px 12px;
+    width: 100%;
+    border-top: 3px solid $cyan;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    column-gap: 5px;
+
+    p {
+        font-size: 16px;
+        font-weight: 700;
+        color: $grayish-blue;
+        text-align: center;
+
+        a {
+            font-size: 18px;
+            text-decoration: none;
+            font-weight: 700;
+            color: $very-dark-blue;
+            transition: color 0.5s ease;
+    
+            &:hover {
+                color: $cyan;
+            }
+        }
+    }
+}
+
+@media only screen and (min-width: 648px) {
+    .attribution {
+        border-radius: 0 10px 0 0;
+        width: max-content;
+    }
+}
+
+@media only screen and (min-width: 1047px) {
+    main {
+        margin: 80px 0 0;
+    }   
+
+    .cards-container {
+        display: grid;
+        grid-template-areas: ". team-builder ."
+            "supervisor team-builder calculator"
+            "supervisor karma calculator"
+            ". karma .";
+    }
+
+    .card {
+        width: 311px;
+
+        &.supervisor {
+            grid-area: supervisor;
+        }
+
+        &.team-builder {
+            grid-area: team-builder;
+        }
+
+        &.karma {
+            grid-area: karma;
+        }
+
+        &.calculator {
+            grid-area: calculator;
+        }
+    }
+}
+
+
+@media only screen and (min-width: 1166px) {
+    main {
+        gap: 64px;
+    }
+
+    .title-container {
+        .title {
+            @include title(36px, 54px);
+            letter-spacing: 0.25px;
+        }
+    }
+
+    .cards-container {
+        grid-gap: 30px;
+    }
+
+    .card {
+        padding: 32px;
+        max-width: 350px;
+        border-radius: 8px;
+        box-shadow: 0px 15px 30px -11px #83a6d280;
+        border-top-width: 4px;
+
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        .title {
+            margin-bottom: 6px;
+        }
+
+        img {
+            width: 64px;
+            height: 64px;
+        }
+    }
+}
