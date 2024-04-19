@@ -48,7 +48,6 @@ main {
 }
 
 @mixin title($fs, $lh) {
-    margin-bottom: 1px;
     font-weight: 600;
 
     font-size: $fs;
@@ -68,13 +67,12 @@ main {
 
 .title-container {
     max-width: 540px;
-
     text-align: center;
 
     .title {
         @include title(24px, 36px);
         letter-spacing: 0.166667px;
-
+        
         span {
             font-weight: 275;
         }
