@@ -72,10 +72,11 @@ main {
     .title {
         @include title(24px, 36px);
         letter-spacing: 0.166667px;
-        
-        span {
-            font-weight: 275;
-        }
+    }
+
+    .title.li {
+        font-weight: 275;
+        margin-bottom: 1px;
     }
 
     .subtitle {
@@ -232,6 +233,10 @@ footer {
         .title {
             @include title(36px, 54px);
             letter-spacing: 0.25px;
+        }
+
+        .title.li {
+            margin-bottom: -3px;
         }
     }
 
